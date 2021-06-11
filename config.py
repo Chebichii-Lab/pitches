@@ -4,9 +4,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    pass
-    MOVIE_API_BASE_URL = 'https://api.themoviedb.org/3/movie/{}?api_key={}'
-    MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
+    
     SECRET_KEY = os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
 
@@ -20,6 +18,7 @@ class Config:
      # simple mde  configurations
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
+    pass
 
 class ProdConfig(Config):
     '''
@@ -32,7 +31,7 @@ class ProdConfig(Config):
     pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:chebichii1@localhost/watchlist_test'
+    SQLALCHEMY_DATABASE_URI = ''
 
 class DevConfig(Config):
     '''
@@ -41,7 +40,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:chebichii1@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = ''
 
     DEBUG = True
 
