@@ -72,8 +72,19 @@ def new_category():
     title = 'New category'
     return render_template('new_category.html', category_form = form, title = title)
 
+@main.route('/category/interview',methods= ['GET'])
+def displayInterviewCategory():
+    interviewPitches = Pitch.get_pitches('interview')
+    return render_template('interview.html',interviewPitches = interviewPitches)
+
+@main.route('/category/product',methods= ['POST','GET'])
+def displayProductCategory():
+    productPitches = Pitch.get_pitches('product')
+    return render_template('category/product.html',productPitches = productPitches)
+
+
     #view single pitch alongside its comments
-@main.route('/view-pitch/<int:id>', methods=['GET', 'POST'])
+@main.route('/comment/<int:id>',methods= ['POST','GET'])
 @login_required
 def view_pitch(id):
     """
