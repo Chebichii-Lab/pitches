@@ -9,16 +9,16 @@ from ..models import User, Pitch, Comments, PitchCategory, Votes
 @main.route('/')
 def index():
     """
-    View root page function that returns index page
+    Function that returns index page
     """
 
     all_category = PitchCategory.get_categories()
     all_pitches = Pitch.query.order_by('-id').all()
     print(all_pitches)
 
-    title = 'Perfect-Pitches'
+    title = 'Pitches In Georgia'
     return render_template('index.html', title = title, categories=all_category, all_pitches=all_pitches)
-    
+
 #Route for adding a new pitch
 @main.route('/category/new-pitch/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -89,6 +89,7 @@ def view_pitch(id):
     count_likes = Votes.query.filter_by(pitches_id=id, vote=1).all()
     count_dislikes = Votes.query.filter_by(pitches_id=id, vote=2).all()
     return render_template('view-pitch.html', pitches = pitches, comment = comment, count_likes=len(count_likes), count_dislikes=len(count_dislikes), category_id = id, categories=all_category)
+
 #adding a comment
 @main.route('/write_comment/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -98,7 +99,7 @@ def post_comment(id):
     """
     
     form = CommentForm()
-    title = 'post comment'
+    title = 'Post A Comment'
     pitches = Pitch.query.filter_by(id=id).first()
 
     if pitches is None:
