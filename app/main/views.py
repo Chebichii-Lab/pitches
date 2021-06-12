@@ -80,7 +80,7 @@ def displayInterviewCategory():
 @main.route('/category/product',methods= ['POST','GET'])
 def displayProductCategory():
     productPitches = Pitch.get_pitches('product')
-    return render_template('category/product.html',productPitches = productPitches)
+    return render_template('product.html',productPitches = productPitches)
 
 
     #view single pitch alongside its comments
