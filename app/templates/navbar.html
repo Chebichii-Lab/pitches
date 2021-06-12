@@ -1,31 +1,38 @@
-{%import 'macros.html' as macro%}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">PITCHES IN GEORGIA</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">HOME
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav navbar-right">
-            {% if current_user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="/">{{current_user.username.capitalize()}}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url_for('auth.logout')}}">Sign Out</a>
-            </li>
-            {%else%}
-            <li class="nav-item">
-                <a class="nav-link" href="{{url_for('auth.login')}}">Sign In</a>
-            </li>
-            {%endif%}
-        </ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"> PITCHES IN GEORGIA </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Categories</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                  {% if current_user.is_authenticated %}
+                  <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+                  <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                  {% else %}
+                  <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                  {%endif%}
+                </ul>
+            </div>
+
+        </div>
     </div>
-</nav>
+  </body>
+</html>
