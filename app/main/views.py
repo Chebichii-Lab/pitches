@@ -82,6 +82,16 @@ def displayProductCategory():
     productPitches = Pitch.get_pitches('product')
     return render_template('product.html',productPitches = productPitches)
 
+@main.route('/category/promotion',methods= ['POST','GET'])
+def displayPromotionCategory():
+    promotionPitches = Pitch.get_pitches('promotion')
+    return render_template('promotion.html',promotionPitches = promotionPitches)
+
+@main.route('/category/pickup',methods= ['POST','GET'])
+def displayPickupCategory():
+    pickupPitches = Pitch.get_pitches('pickup')
+    return render_template('pickup.html',pickupPitches = pickupPitches)
+
 
     #view single pitch alongside its comments
 @main.route('/comment/<int:id>',methods= ['POST','GET'])
