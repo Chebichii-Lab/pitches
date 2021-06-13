@@ -182,3 +182,6 @@ def upvote(id,vote_type):
     # count_dislikes = Votes.query.filter_by(pitches_id=id, vote=2).all()
 
     return redirect(url_for('.view_pitch', id=id))
+
+
+
