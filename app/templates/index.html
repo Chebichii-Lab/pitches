@@ -1,22 +1,23 @@
 {% extends 'base.html'%} 
 {% import 'macros.html' as macro %} 
 {% block content%}
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+<div id="background">
   <style>
     #background{
-      background-image: url('../static/adelin-grigorescu-0FcicnYXOko-unsplash.jpg');
+      background-image: url('../static/adelin-grigorescu-6l5Tc5wDbJY-unsplash.jpg');
+      background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      background-repeat: no-repeat;
     }
   </style>
-    <div class="container text-white text-center" id="background">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <div class="container text-white text-center">
       <h2 class="card-title h1-responsive font-bold" style="font-size:80px; color:white; font-family: 'Dancing Script', cursive; font-weight:bold;">PITCHES IN GEORGIA</h2>
       <p class="lead" style="color: white; font-size:30px;">Welcome to PITCHES in GEORGIA! Just like Peaches in the state of Georgia are known to be produced in high quality and quantity, the PITCHES IN GEORGIA give you the best pitches ever!</p>
       <a class="btn btn-primary btn-lg" href="{{url_for('main.new_pitch')}}"><i class="fas fa-clone left"></i>Create Pitch</a>
     </div>
-  </div>
+  <!-- </div> -->
 
 <h3 class="text-center text-uppercase text-bold" style="font-family: 'Dancing Script', cursive; font-size:60px;">CATEGORIES</h3>
 <hr>
@@ -71,6 +72,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <!-- Footer -->
 <footer class="page-footer font-large blue-grey darken-3">
