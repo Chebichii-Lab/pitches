@@ -147,7 +147,7 @@ def post_comment(id):
         new_comment.save_comment()
         return redirect(url_for('.view_pitch', id = pitches.id))
 
-    return render_template('post_comment.html', comment_form = form, title = title)
+    return render_template('comment.html', comment_form = form, title = title)
 
 #Routes upvoting/downvoting pitches
 @main.route('/pitch/upvote/<int:id>&<int:vote_type>')
@@ -177,11 +177,11 @@ def upvote(id,vote_type):
             new_vote.save_vote()
             print('YOU HAVE VOTED')
             break
-         # count_likes = Votes.query.filter_by(pitches_id=id, vote=1).all()
+    # count_likes = Votes.query.filter_by(pitches_id=id, vote=1).all()
     # upvotes=len(count_likes)
     # count_dislikes = Votes.query.filter_by(pitches_id=id, vote=2).all()
 
-    return redirect(url_for('.view_pitch', id=id))
+    return redirect(url_for('comment.html', id=id))
 
 
 
